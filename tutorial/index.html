@@ -1,0 +1,298 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Apache Spark SQL: An Introductory Workshop</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>Apache Spark SQL: An Introductory Workshop</h1>
+
+<p><img src="http://spark.apache.org/docs/1.0.1/img/spark-logo-100x40px.png" alt="image" /></p>
+
+<p>Dean Wampler, Ph.D.<br/>
+Typesafe<br/>
+<a href="mailto:dean.wampler@typesafe.com">dean.wampler@typesafe.com</a><br/>
+<a href="https://twitter.com/deanwampler">@deanwampler</a></p>
+
+<h2>Introduction</h2>
+
+<p>This workshop focuses on the new <a href="http://spark.apache.org/docs/latest/sql-programming-guide.html">Spark SQL</a> API, which integrates structured data and embedded SQL queries with normal Spark code. It even has a Hive integration module so you can query existing Hive tables, even create and delete them.</p>
+
+<p>We pick up where my <a href="https://github.com/deanwampler/spark-workshop">Apache Spark: An Introductory Workshop</a> left off, including the numbering used for the examples.</p>
+
+<p>I'll assume you've already worked through that workshop and not repeat details about Spark basics.</p>
+
+<h2>About Spark SQL</h2>
+
+<p>TBD. For now, see the <a href="http://spark.apache.org/docs/latest/sql-programming-guide.html">Spark SQL description</a>.</p>
+
+<h2>Building and Testing</h2>
+
+<p>If you're using the <a href="http://typesafe.com/activator">Typesafe Activator UI</a>, search for <code>activator-spark</code> and install it in the UI. The code is built automatically.</p>
+
+<p>If you grabbed this workshop from <a href="https://github.com/deanwampler/activator-spark">Github</a>, you'll need to install <code>sbt</code> and use a command line to build and run the applications. In that case, see the <a href="http://www.scala-sbt.org/">sbt website</a> for instructions on installing <code>sbt</code>.</p>
+
+<p>To compile the code and run the tests, either use the Activator UI <a class="shortcut" href="#test">test</a> link or start <code>sbt</code> and enter <code>test</code> at the prompt.</p>
+
+<p>Either way, the code is compiled and the tests are executed. They should pass without error. Note that tests are provided for all the exercises, except the <em>Spark Streaming</em> exercise, which uses multiple processes.</p>
+
+<h2>Running the Exercises</h2>
+
+<p>Next, let's try running one of the exercises.</p>
+
+<p>In Activator, use the <a class="shortcut" href="#run">run</a> panel, select the first exercise, <code>SparkSQL9</code>, in the bullet items under "Main Class", and click the "Start" button. The "Logs" panel shows some information. Note the <code>output</code> directories listed in the output. Use a file browser to find those directories to view the output written in those locations.</p>
+
+<p>In <code>sbt</code>, enter <code>run</code>. It will present the same list of main classes. Enter the number for <code>SparkSQL9</code> to run it.</p>
+
+<p>Note that the some exercises have package names with the word <code>solns</code>. They are solutions to the exercises.</p>
+
+<h2>The Exercises</h2>
+
+<p>Here is a list of the exercises. In subsequent sections, we'll dive into the details for each one. Note that each name ends with a number, indicating the order in which we'll discuss and try them:</p>
+
+<ul>
+<li><strong>SparkSQL9:</strong> Uses the SQL API to run basic queries over structured data, in this case, the same King James Version (KJV) of the Bible used in the previous workshop. (The <code>data</code> directory has a <a href="data/README.html">README</a> that discusses the sources of the data files.) This script ends by writing data in the de-facto standard <a href="http://parquet.io">Parquet</a> format that is increasingly popular in <em>Big Data</em> applications.</li>
+<li><strong>SparkSQLParquet10:</strong> Demonstrates reading Parquet-formatted data, namely the data written in the previous example.</li>
+<li><strong>HiveSQL10:</strong> A script that demonstrates interacting with Hive tables (we actually create one) in the Scala REPL!</li>
+</ul>
+
+
+<p>Let's now work through these exercises...</p>
+
+<h2>SparkSQL9</h2>
+
+<p><a class="shortcut" href="#code/src/main/scala/spark/SparkSQL9.scala">SparkSQL9.scala</a></p>
+
+<p>TODO</p>
+
+<p>Reads and parses the King James Bible text, <code>kjvdat.txt</code>.</p>
+
+<p>As in the previous <em>Spark Workshop</em>, command line options can be used to override the defaults. We'll have to use <code>sbt</code> from a command window to use this feature (rather than the <em>Activator UI</em>), and we'll have to use the <code>run-main</code> task, which lets us specify a particular <code>main</code> to run and optional arguments.</p>
+
+<p>The "\" characters in the following and subsequent command descriptions are used to indicate long lines that I wrapped to fit. Enter the commands on a single line without the "\". I use <code>[...]</code> to indicate optional arguments, and <code>|</code> to indicate alternative flags:</p>
+
+<pre><code>run-main spark.SparkSQL9 [ -h | --help] \ 
+  [-i | --in | --inpath input] \ 
+  [-o | --out | --outpath output] \ 
+  [-m | --master master] \ 
+  [-q | --quiet]
+</code></pre>
+
+<p>Where the options have the following meanings:</p>
+
+<pre><code>-h | --help     Show help and exit.
+-i ... input    Read this input source (default: data/kjvdat.txt).
+-o ... output   Write to this output location (default: output/verses.parquet).
+-m ... master   local, local[k], etc. as discussed previously.
+-q | --quiet    Suppress some informational output.
+</code></pre>
+
+<p>The options work the same as before, except we don't append a timestamp to the output path, because its contents will be read by the next exercise.</p>
+
+<p><strong>NOTE:</strong> Because we don't append a timestamp to the output path, you'll get a runtime error if the directory already exists. Just delete or rename the existing directory, or specify a different output path.</p>
+
+<p>Code description TODO.</p>
+
+<p>As before, there are suggested exercises at the end of the source file. Some solutions are provided in the <code>solns</code> source package.</p>
+
+<h2>SparkSQLParquet10</h2>
+
+<p><a class="shortcut" href="#code/src/main/scala/spark/SparkSQLParquet10.scala">SparkSQLParquet10.scala</a></p>
+
+<p>TODO</p>
+
+<p>Reads the Parquet output of the previous example and works with the data using the SQL API.</p>
+
+<p>The command-line options are similar, but there is no output option as all results are printed to the console:</p>
+
+<pre><code>run-main spark.SparkSQLParquet10 [ -h | --help] \ 
+  [-i | --in | --inpath input] \ 
+  [-m | --master master] \ 
+  [-q | --quiet]
+</code></pre>
+
+<p>Code description TODO.</p>
+
+<h2>HiveSQL11</h2>
+
+<p><a class="shortcut" href="#code/src/main/scala/spark/HiveSQL11.scala">HiveSQL11.scala</a></p>
+
+<p>TODO</p>
+
+<p>This is actually a script file, but you'll find it most useful if you start the <code>console</code> in SBT, then copy and paste the statements, to see what each one does. Then you can experiment with the API, especially if you already know Hive!.</p>
+
+<p>Note that the Hive "metadata" is stored in a <code>megastore</code> directory created in the current working directory. This is written and managed by Hive's embedded <a href="http://db.apache.org/derby/">Derby SQL</a> store, but is not a production configuration.</p>
+
+<p>Code description TODO.</p>
+
+<h2>Going Forward from Here</h2>
+
+<p>This template is not a complete Apache Spark SQL tutorial and the API is evolving rapidly. For example, built-in support for JSON-formatted data is being added in a subsequent release. To learn more, see the following:</p>
+
+<ul>
+<li>The Apache Spark <a href="http://spark.apache.org/">website</a>.</li>
+<li>The Apache Spark SQL <a href="http://spark.apache.org/docs/latest/sql-programming-guide.html">Programming Guide</a> API* <a href="http://spark-summit.org/2013">Talks from Spark Summit 2013</a>.</li>
+<li>... and other references in my other <em>Spark Workshop</em>.</li>
+</ul>
+
+
+<h2>For more about Typesafe:</h2>
+
+<ul>
+<li>See <a href="http://typesafe.com/activator">Typesafe Activator</a> to find other Activator templates.</li>
+<li>See <a href="http://typesafe.com">Typesafe</a> for more information about our products and services.</li>
+</ul>
+
+</body>
+</html>
